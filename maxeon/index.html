@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <title>Maxeon</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+	    <body>
+	        <nav>
+	        	<div>
+	        		<ul>
+	        			<li class="left logo"><a href="#maxeon">Maxeon</a></li>
+	        			<li class="right"><button>Login</button></li>
+	        			<li class="right"><a href="#pricing">Pricing</a></li>
+	        			<li class="right"><a href="#usecases">Use Cases</a></li>
+	        			<li class="right"><a href="#features">Features</a></li>	
+	        			<li class="right"><a href="#products">Products</a></li>
+	        		</ul>
+	        	</div>
+	        </nav>
+	        <div class="container">
+	        	<div class="row">
+	        		<div class="col-4">
+	        			<h1>Where words fail,Music speaks.</h1>
+	        		</div>
+	        		<div class="col-8">
+	        			<div ng-app="myApp">
+							<div class="row">
+								<div class="col-4"></div>
+								<div class="col-8 chatbox" id="chtbx">
+									<div class="helo">
+										<h1>Hi There</h1>
+										<h3>Hello Ask Us Anything.Share Your Feedback</h3>
+									</div>
+									<div class="intro" id="convo">
+										<p>Start a conversation</p>
+										<h3>The team typically replies in few minutes</h3>
+										<div>
+											<button onclick="newConvo()" class="btn">Start Conversation    <i class="material-icons" style="font-size: 18px; padding: 2px 5px 0px 5px; text-align: center;">send</i></button>
+										</div>
+									</div>
+								</div>
+								<div class="col-8 starts" id="chat" ng-controller="chatting">
+									<div class="helo">
+										<h1>Hi There</h1>
+										<h3>Hello Ask Us Anything.Share Your Feedback</h3>
+									</div>
+									<div class="message" id="inbox">
+										<div class="clientMsg" ng-repeat="x in msgstack">
+											<div class="x">{{x}}</div>
+										</div>
+										<div class="srvrMsg" ng-repeat="y in srvrstack">
+											<div class="y">{{y.advice}}</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12">
+											<img src="sparrow favicon.png" style="width: 10px; height: 10px;"><span>we run on surveysparrow</span>
+										</div>
+									</div>
+									<br>
+									<hr>
+									<br>
+									<div class="row">
+										<div class="reply" id="msg">
+											<input type="text" placeholder="Write a reply" ng-model="msgs" value="reset"><span><i ng-click="addMsg()" class="material-icons msgsend" style="font-size: 30px; padding: 15px; cursor: pointer;">send</i></span>
+										</div>
+									</div>
+								</div>
+							</div>	        				
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="foot">
+	        	<div class="icon">
+	        		<img onclick="sparrow(0)" id="spar" src="Sparrow Bird.png" style="width: 28px; height: 35px; display: block;">
+					<span><i onclick="sparrow(1)" id="cls" class="material-icons clear" style="font-size: 30px; display: none;">close</i></span>
+	        	</div>
+	        </div>
+
+
+	        <script type="text/javascript">
+	        	var app = angular.module("myApp",[]);
+	        	function sparrow(n)
+	        	{
+	        		if(n == 0)
+	        		{
+	        			document.getElementById("spar").style.display="none";
+	        			document.getElementById("cls").style.display="block";
+	        			document.getElementById("chtbx").style.display="block";
+	        			document.getElementById("convo").style.display="block";
+	        		}
+	        		else
+	        		{
+	        			document.getElementById("spar").style.display="block";
+	        			document.getElementById("cls").style.display="none";
+	        			document.getElementById("chtbx").style.display="none";
+	        			document.getElementById("chat").style.display="none";
+	        		}
+	        		
+	        	}
+	        	function newConvo()
+	        	{
+	        		document.getElementById("convo").style.display="none";
+	        		document.getElementById("chat").style.display="block";
+	        	}
+
+	        	app.controller("chatting", function($scope,$http)
+	        	{
+	        		$scope.addMsg = function(){
+	        			$scope.msgstack = [];
+	        			$scope.msgstack.push($scope.msgs);
+	        			$scope.msgs = "";
+	        			$http({
+         					method : "GET",
+         					url : "https://api.adviceslip.com/advice"
+       					}).then(function mySuccess(response){
+       					 	$scope.srvrstack = response.data;
+       					});
+	        		}
+	        	}
+	        		);
+	        </script>
+	    </body>
+</html>

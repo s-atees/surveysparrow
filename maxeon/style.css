@@ -1,0 +1,318 @@
+body {
+  background-image: url(Banner2.png);
+}
+
+nav,
+header,
+footer{
+    display: block;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.row::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+.col-4 {
+	width: 33.33%;
+	padding-left: 40px;
+	padding-top: 40px;
+}
+
+.col-8 {
+	width: 56.66%;
+}
+
+.col-12 {
+	width: 100%;
+	padding-left: 100px;
+	position: fixed;
+	cursor: default;
+}
+
+.reply {
+	width: 100%;
+	padding-left: 40px;
+	position: fixed;
+}
+
+
+/*--------nav bar---------*/
+
+nav {
+    width: 90%;
+    margin: 0;
+    padding-top: 5px;
+}
+nav ul li {
+	list-style: none;
+	float: left;
+	padding: 20px;
+}
+
+li.right {
+	float: right;
+}
+
+nav ul li a {
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	color: #ECF1FB;
+	
+}
+
+nav ul li.right a {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 200;
+	padding-right: 10px;
+
+}
+
+nav ul li.right a:hover {
+	color: #fff;
+}
+
+nav ul li button {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #ECF1FB;
+	padding: 5px 20px 5px 20px;
+	border-style: none;
+	border-radius: 20px;
+	color: #0C003A;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+nav ul li.logo a {
+	font-size: 40px;
+	font-weight: 600;
+}
+
+
+
+
+
+
+
+/*-------body--------*/
+
+.col-4 h1{
+	font-size: 85px;
+	font-family: 'Montserrat', sans-serif;
+	color: #ECF1FB;
+}
+
+
+
+/*--------------footer----------*/
+
+.foot {
+	display: block;
+	width: 90%;
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 50px;
+}
+.foot .icon {
+	float: right; 
+	width: 60px;
+	height: 60px;
+	background-color: #ECF1FB;
+	border-radius: 50% 50% 0% 50%;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+.foot .icon img {
+	padding-left: 15px;
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+.clear {
+	padding-top: 15px;
+	padding-left: 12px;
+	cursor: pointer;
+}
+
+
+
+/*-----------------chat box------------*/
+.chatbox {
+	margin-bottom: 20px;
+	position: absolute;
+	display: none;
+	margin-left: 420px;
+	margin-top: 130px;
+	padding: 10px;
+	height: auto;
+	width: 350px;
+	max-width: 350px;
+	max-height: 450px;
+	background-color: #ECF1FB;
+	border-radius: 6px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+	overflow-y: hidden;
+}
+
+.helo {
+	background-color: #7F8AC5;
+	padding: 10px;
+	border-radius: 7px;
+}
+
+.helo h1 {
+	padding-left: 10px;
+	font-family: 'Montserrat', sans-serif;
+	color: #ECF1FB;
+}
+.helo h3 {
+	padding-left: 10px;
+	font-family: 'Montserrat', sans-serif;
+	color: #ECF1FB;
+	font-size: 10px;
+}
+
+.intro {
+	padding: 10px;
+	display: block;
+}
+
+.intro p {
+	font-family: 'Montserrat', sans-serif;
+	color: #0C003A;
+	font-size: 15px;
+	font-weight: 600;
+	padding-left: 20px;
+}
+.intro h3 {
+	font-family: 'Montserrat', sans-serif;
+	color: #0C003A;
+	font-size: 10px;
+	padding-left: 20px;
+}
+
+.btn {
+	background-color: #13A884;
+	border-radius: 20px;
+	font-family: 'Montserrat', sans-serif;
+	color: #ECF1FB;
+	border-style: none;
+	padding: 10px;
+	text-align: center;
+	font-size: 15px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+
+/*---------new chatbox--------*/
+
+.starts {
+	margin-bottom: 20px;
+	position: absolute;
+	display: none;
+	margin-left: 420px;
+	margin-top: 40px;
+	padding: 10px;
+	height: 450px;
+	width: 350px;
+	max-width: 350px;
+	max-height: 450px;
+	background-color: #ECF1FB;
+	border-radius: 6px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+	overflow-y: hidden;
+}
+
+
+
+
+
+.message {
+	width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 250px;
+}
+.message::after {
+	display: table;
+    clear: both;
+    content: "";
+}
+
+.msg {
+	width: 60%;
+}
+
+.col-12 span{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 10px;
+	padding-left: 4px;
+	text-align: center;
+}
+
+.reply input {
+	border-style: none;
+	width: 240px;
+	height: 30px;
+	margin-top: : 0;
+	text-align: left;
+	background-color: #ECF1FB;
+	padding-bottom: 2px;
+	font-size: 15px;
+}
+
+
+.msgsend {
+	
+	color: #7F88C5;
+	
+}
+
+
+
+/*----------------msgs------------*/
+
+.clientMsg {
+	background-color: #4C5AA1;
+	float: right;
+	width: 280px;
+	margin-left: 40px;
+	border-radius: 7px;
+}
+.x {
+	color: white;
+	padding: 5px;
+	float: right;
+}
+
+
+
+.srvrMsg {
+	background-color: #D8D8D8;
+	float: left;
+	width: 280px;
+	margin-right: 40px;
+	margin-left: 20px;
+	border-radius: 7px;
+}
+.y {
+	color: black;
+	padding: 5px;
+	float: left;
+}
